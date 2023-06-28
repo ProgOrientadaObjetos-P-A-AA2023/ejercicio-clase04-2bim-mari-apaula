@@ -14,7 +14,6 @@ public class PasajeTerceraEdad extends PasajeUrbano {
     public PasajeTerceraEdad(double pasaje){
         super(pasaje);
     }
-    
        
     @Override
     public String toString(){

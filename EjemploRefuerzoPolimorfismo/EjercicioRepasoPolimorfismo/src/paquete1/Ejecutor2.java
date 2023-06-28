@@ -17,7 +17,10 @@ public class Ejecutor2 {
         String[] apellidos = {"Martinez", "Lyons", "Kim", "Tate", "Lee"};
         int[] edad = {9, 70, 35, 23, 10};
         double pasajeFijo = 0.4;
-        
+        Persona p1;
+        String nom = "";
+        String app = "";
+        int anios = 0;
         /*
         Generar un proceso que permita iterar los arreglos; el objetivo es 
         crear objetos de tipo Pasaje Menor de edad, Pasaje Normal, Pasaje 
@@ -35,21 +38,61 @@ public class Ejecutor2 {
         normal: mayor a 25 y menor 65
         tercera edad: mayor o igual a 65
         
-        */
+         */
         // inicio de solución
-        
-        
+        for (int i = 0; i < nombres.length; i++) {
+            if (edad[i] >= 0 && edad[i] <= 18) {
+                nom = nombres[i];
+                app = apellidos[i];
+                anios = edad[i];
+                p1 = new Persona(nom, app, anios);
+
+                PasajeMenorEdad pasajeMenor = new PasajeMenorEdad(pasajeFijo);
+                pasajeMenor.establecerPersona(p1);
+                pasajes.add(pasajeMenor);
+            } else if (edad[i] > 18 && edad[i] <= 25) {
+                nom = nombres[i];
+                app = apellidos[i];
+                anios = edad[i];
+                p1 = new Persona(nom, app, anios);
+
+                PasajeUniversitario pasajeUni = new PasajeUniversitario(pasajeFijo);
+                pasajeUni.establecerPersona(p1);
+                
+                pasajes.add(pasajeUni);
+            } else if (edad[i] > 25 && edad[i] <= 65) {
+                nom = nombres[i];
+                app = apellidos[i];
+                anios = edad[i];
+                p1 = new Persona(nom, app, anios);
+
+                PasajeNormal pasajeNor = new PasajeNormal(pasajeFijo);
+                pasajeNor.establecerPersona(p1);
+                
+                pasajes.add(pasajeNor);
+            } else if (edad[i] >= 65) {
+                nom = nombres[i];
+                app = apellidos[i];
+                anios = edad[i];
+                p1 = new Persona(nom, app, anios);
+
+                PasajeTerceraEdad pasajeTer = new PasajeTerceraEdad(pasajeFijo);
+                pasajeTer.establecerPersona(p1);
+                
+                pasajes.add(pasajeTer);
+            }
+        }
+
         // fin  de solución
-        
         // no incrementar líneas de código desde aquí
         for (int i = 0; i < pasajes.size(); i++) {
             pasajes.get(i).establecerValorPasaje();
         }
-        
+
         for (int i = 0; i < pasajes.size(); i++) {
             System.out.printf("%s\n",
                     pasajes.get(i));
         }
-
+        
     }
 }

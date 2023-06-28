@@ -23,8 +23,6 @@ public abstract class PasajeUrbano{
         usuario = u;
         valorFijo = fijo;
     }
-    
-       
     public void establecerPersona(Persona p){
         usuario = p;
     }
@@ -46,8 +44,6 @@ public abstract class PasajeUrbano{
     public double obtenerValorPasaje(){
         return valorPasaje;
     }
-    
-    
     @Override
     public String toString(){
         return String.format("Pasajero: %s\n"
@@ -57,7 +53,5 @@ public abstract class PasajeUrbano{
                     obtenerPersona().obtenerNombre(),
                     obtenerPersona().obtenerCedula(),
                     obtenerValorPasaje());
-    }
-    
-    
+    }   
 }
